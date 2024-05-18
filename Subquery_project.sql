@@ -7,9 +7,9 @@ select * from master.dbo. painting
 
 -------------------- Scalar SUBQUERY--------------------
 /*
-Question 1. We’ll start with a simple example: We want to list paintings that are priced higher than the average. 
+Question 1. Weâ€™ll start with a simple example: We want to list paintings that are priced higher than the average. 
            Basically, we want to get painting names along with the listed prices, but only for the ones that cost more 
-          than average. That means that we first need to find this average price; here’s where the scalar subquery comes into play:
+          than average. That means that we first need to find this average price; hereâ€™s where the scalar subquery comes into play:
 		  */
 
 
@@ -24,7 +24,7 @@ where listed_price > (select avg(listed_price) from master.dbo.painting)
 /*
 Suppose we want to list all collectors who purchased paintings from our gallery. 
 We can get the necessary output using a multirow subquery. Specifically, we can use an inner query to list 
-all collectors’ IDs present in the sales table – these would be IDs corresponding to collectors 
+all collectorsâ€™ IDs present in the sales table â€“ these would be IDs corresponding to collectors 
 who made at least one purchase with our gallery. Then, in the outer query, 
 we request the first name and last name of all collectors whose ID is in the output of the inner query.
 */
@@ -39,9 +39,9 @@ where id in (select distinct collector_id from sales)
 ------------------------Multirow subquery with multi colmuns------------------
 
 /*
-Let’s say that we want to see the total amount of sales for each artist who has sold at least one painting in our gallery. 
+Letâ€™s say that we want to see the total amount of sales for each artist who has sold at least one painting in our gallery. 
 We may start with a subquery that draws on the sales table and calculates the total amount of sales for each artist ID. Then, 
-in the outer query, we combine this information with the artists’ first names and last names to get the required output:
+in the outer query, we combine this information with the artistsâ€™ first names and last names to get the required output:
 */
 
 
@@ -64,7 +64,7 @@ The following example will demonstrate how subqueries:
 Can be used in the SELECT clause, and
 Can be correlated (i.e. the main or outer query relies on information obtained from the inner query).
 For each collector, we want to calculate the number of paintings purchased through our gallery. To answer this question, 
-we can use a subquery that counts the number of paintings purchased by each collector. Here’s the entire query:
+we can use a subquery that counts the number of paintings purchased by each collector. Hereâ€™s the entire query:
 */
 
 
